@@ -1,4 +1,4 @@
-// flow-typed signature: 75a75054a1591a659545806a9081daaf
+// flow-typed signature: 2759d0cc4278411df98f6ccfb24f01c5
 // flow-typed version: <<STUB>>/electron-builder_v^10.6.1/flow_v0.37.0
 
 /**
@@ -130,10 +130,6 @@ declare module 'electron-builder/out/publish/publisher' {
   declare module.exports: any;
 }
 
-declare module 'electron-builder/out/publish/restApiRequest' {
-  declare module.exports: any;
-}
-
 declare module 'electron-builder/out/publish/uploader' {
   declare module.exports: any;
 }
@@ -206,11 +202,19 @@ declare module 'electron-builder/out/util/fs' {
   declare module.exports: any;
 }
 
+declare module 'electron-builder/out/util/httpExecutor' {
+  declare module.exports: any;
+}
+
 declare module 'electron-builder/out/util/httpRequest' {
   declare module.exports: any;
 }
 
 declare module 'electron-builder/out/util/log' {
+  declare module.exports: any;
+}
+
+declare module 'electron-builder/out/util/nodeHttpExecutor' {
   declare module.exports: any;
 }
 
@@ -324,9 +328,6 @@ declare module 'electron-builder/out/publish/gitHubPublisher.js' {
 declare module 'electron-builder/out/publish/publisher.js' {
   declare module.exports: $Exports<'electron-builder/out/publish/publisher'>;
 }
-declare module 'electron-builder/out/publish/restApiRequest.js' {
-  declare module.exports: $Exports<'electron-builder/out/publish/restApiRequest'>;
-}
 declare module 'electron-builder/out/publish/uploader.js' {
   declare module.exports: $Exports<'electron-builder/out/publish/uploader'>;
 }
@@ -381,11 +382,17 @@ declare module 'electron-builder/out/util/filter.js' {
 declare module 'electron-builder/out/util/fs.js' {
   declare module.exports: $Exports<'electron-builder/out/util/fs'>;
 }
+declare module 'electron-builder/out/util/httpExecutor.js' {
+  declare module.exports: $Exports<'electron-builder/out/util/httpExecutor'>;
+}
 declare module 'electron-builder/out/util/httpRequest.js' {
   declare module.exports: $Exports<'electron-builder/out/util/httpRequest'>;
 }
 declare module 'electron-builder/out/util/log.js' {
   declare module.exports: $Exports<'electron-builder/out/util/log'>;
+}
+declare module 'electron-builder/out/util/nodeHttpExecutor.js' {
+  declare module.exports: $Exports<'electron-builder/out/util/nodeHttpExecutor'>;
 }
 declare module 'electron-builder/out/util/promise.js' {
   declare module.exports: $Exports<'electron-builder/out/util/promise'>;
