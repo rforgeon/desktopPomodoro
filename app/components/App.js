@@ -1,16 +1,20 @@
-import React, { Component } from 'react';
-import '../App.css';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions/actionCreators';
+import Main from './Main';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
-        
-      </div>
-    );
+function mapStateToProps(state){
+  return {
+    timer: state.timer,
+    list: state.list,
+    listItem: state.listItem
   }
 }
+
+function mapDispachToProps(dispatch){
+  return bindActionCreators(actionCreators, dispatch);
+}
+
+const App = connect(mapStateToProps, mapDispachToProps)(Main);
 
 export default App;

@@ -1,15 +1,17 @@
 //start timer
-export function startTimer(index){
+export function startTimer(seconds,index){
   return{
     type: "START_TIMER",
+    seconds,
     index
   }
 }
 
 //reset timer
-export function resetTimer(index){
+export function resetTimer(seconds,index){
   return{
     type: "RESET_TIMER",
+    seconds,
     index
   }
 }
