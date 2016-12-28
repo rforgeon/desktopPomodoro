@@ -7,13 +7,17 @@ class Timer extends Component {
 
     return (
       <div className="Timer">
-        {this.props.timer.timerItems.map((myTimerItem,timerIndex)=> <TimerItem {...this.props}
+        {this.props.timer.timerItems.map((myTimerItem,timerIndex)=>
+                  <TimerItem
+                    {...this.props}
                     key={timerIndex}
                     index={timerIndex}
                     myTimerItem={myTimerItem}
                     />)}
+
       </div>
     );
+
   }
 }
 

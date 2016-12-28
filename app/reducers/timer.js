@@ -14,8 +14,10 @@ var defaultState = {
   ]
 }
 
-function Timer(state = defaultState, action){
+function Timer(state = defaultState.timerItems, action){
   switch(action.type){
+
+
     case 'INIT_WORK_TIMER' :
 
       return {
@@ -43,7 +45,7 @@ function Timer(state = defaultState, action){
         onBreak: state.onBreak
       }
 
-  
+
 
     default:
       return state;

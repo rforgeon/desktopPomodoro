@@ -6,13 +6,12 @@ class TimerItem extends Component {
   startTimer(){
     this.interval = setInterval( () => {
       console.log(this.props.myTimerItem)
-      console.log(this.props.myTimerItem.timerIndex)
 
       this.props.decrementTimer(this.props.myTimerItem.timerIndex);
     }, 1000);
     this.setTimeout = setTimeout( () => {
       this.props.incrementIndex();
-      if (this.props.myTimerItem.onBreak == false){
+      if (this.props.onBreak == false){
         this.props.pauseTimer();
         this.props.setOnbreakTrue();
         this.props.initWorkTimer();
@@ -23,7 +22,7 @@ class TimerItem extends Component {
       }
 
       //take a long (30min) break every 4 pomodoros
-      else if (this.props.myTimerItem.index%4 == 0){
+      else if (this.props.index%4 == 0){
         this.props.pauseTimer();
         this.props.setOnbreakFalse();
         this.props.initLongBreakTimer();
@@ -44,7 +43,7 @@ class TimerItem extends Component {
         })
         return "ShortBreak";
       }
-    }, this.props.myTimerItem.seconds*1000);
+    }, this.props.timerItem[this.props.myTimerItem.timerIndex].seconds*1000);
   }
 
   pauseTimer(){
@@ -62,8 +61,8 @@ class TimerItem extends Component {
   render() {
 
     //show timer seconds as "minutes:seconds" (include leading zeros)
-    var minutes = Math.floor(this.props.myTimerItem.seconds / 60);
-    var clockSeconds = this.props.myTimerItem.seconds - minutes * 60;
+    var minutes = Math.floor(this.props.timerItem[this.props.myTimerItem.timerIndex].seconds / 60);
+    var clockSeconds = this.props.timerItem[this.props.myTimerItem.timerIndex].seconds - minutes * 60;
     function str_pad_left(string,pad,length){
       return (new Array(length+1).join(pad)+string).slice(-length);
     }

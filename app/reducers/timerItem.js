@@ -19,68 +19,64 @@ var timer = {
 }
 
 function timerItem(state = timer.timerItems,action){
+  const i = action.timerIndex;
+
   switch(action.type){
+
     case 'DECREMENT_TIMER':
       console.log("Decrementing timer");
       console.log(state);
       console.log(state[0].seconds);
-      const i = action.timerIndex;
+
       return [
         ...state.slice(0,i),
-        {...state[i], seconds: --state[i].seconds},
-        // {
-        // seconds: --state.seconds,
-        // pomodoroIndex: state.pomodoroIndex,
-        // isRunning: true,
-        // onBreak: state.onBreak,
-        // timerIndex: state.timerIndex
-        // },
-      ...state.slice(i + 1),
-    ]
+        {...state[i], seconds: --state[i].seconds, isRunning: true},
+        ...state.slice(i + 1),
+      ]
 
     case 'PAUSE_TIMER' :
 
-      return {
-        seconds: state.seconds,
-        index: state.index,
-        isRunning: false,
-        OnBreak: state.onBreak
-      }
+      return [
+        ...state.slice(0,i),
+        {...state[i], isRunning: false},
+        ...state.slice(i + 1),
+      ]
 
     case 'RESET_TIMER' :
+      console.log(i)
+      console.log(timer.timerItems[i].seconds)
+      const defaultTime = timer.timerItems[i].seconds
 
-      return {
-        seconds: defaultState.seconds,
-        index: state.index,
-        isRunning: false,
-        OnBreak: state.onBreak
-      }
+      return [
+        ...state.slice(0,i),
+        {...state[i], isRunning: false, seconds: defaultTime },
+        ...state.slice(i + 1),
+      ]
 
     case 'INCREMENT_INDEX':
 
-      return {
-        seconds: state.seconds,
-        index: ++state.index,
-        isRunning: state.isRunning
-      }
+      return [
+        ...state.slice(0,i),
+        {...state[i], index: ++state[i].index },
+        ...state.slice(i + 1),
+      ]
 
     case 'SET_ONBREAK_TRUE' :
 
-      return {
-        seconds: defaultState.seconds,
-        index: state.index,
-        isRunning: state.isRunning,
-        onBreak: true
-      }
+      return [
+        ...state.slice(0,i),
+        {...state[i], onBreak: true },
+        ...state.slice(i + 1),
+      ]
+
 
     case 'SET_ONBREAK_FALSE' :
 
-      return {
-        seconds: defaultState.seconds,
-        index: state.index,
-        isRunning: state.isRunning,
-        onBreak: false
-      }
+    return [
+      ...state.slice(0,i),
+      {...state[i], onBreak: false },
+      ...state.slice(i + 1),
+    ]
 
     default:
       return state;
