@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu, shell } from 'electron';
+import { app, BrowserWindow, Menu, shell, Tray } from 'electron';
 
 let menu;
 let template;
@@ -40,6 +40,9 @@ const installExtensions = async () => {
 
 app.on('ready', async () => {
   await installExtensions();
+
+  // let icon = nativeImage.createFromDataURL("iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABAlBMVEX///////+/v//MzP/Y2Ovb2+3b2+3a4fDb2/DV2+3W3O7X3u3Z4O7Y3e3W3u3W3uzV3OrW3u3V3evY3e3P1ujV2+zS2urS2evV3OvU3OvU2+vU2uvS2unS2OrR2OnR1+jR1+jNxM3Ny9DNzdPN0NrQwMrQ09zQ1+jR2OjS2enV2+rV3OrZ3+vazNDa29/a3+zi5/Dj5Ofj5Orj5/DnvL/n5+nn6e/p7PTs7vHvusDvvcLv8fbwxcjw8fTx2Nvx8fTx8vX29/r5+vv79PT7+/z85+f8/P38/f39rK39/P39/f7+qqr+/v7+/v//q6v/s7P/tLT/zc3/z8//0tL/+fn///8U0i6PAAAAIXRSTlMAAwQFDQ4cIiMrLEZJYmNrboONj5CdqrC0vb7W6e7v+f1YXuz8AAAAxUlEQVR42k3IdxuBUByG4aMoGZGVVdmjsrfsvcLB7/t/FSe6Lp6/3vdG39zhsBv9JwQCwu+5WOSNxbyIddkQirD+eNzPRkI20GKm0ek0MiJtQ1Lrb+q1dV9Lfj9fPc2ngCezY5X/gGQUAABjnDUk6zNlk/wXgadZZgj41HwPYDzCuJtTfQQ8FSBdzjf8gIqHgENZliy63otLxYFIUX2/WwGsDls9iqyc6WZ70Wot2s20E33iUupgOByoKQ7ZUcGELCeClLXfJj4dwBwIJe8AAAAASUVORK5CYII=")
+  // tray = new Tray("https://cldup.com/vSSGAVj2Dx.png")
 
   mainWindow = new BrowserWindow({
     show: false,

@@ -6,6 +6,7 @@ import Main from './Main';
 function mapStateToProps(state){
   return {
     timer: state.timer,
+    timerItem: state.timerItem,
     list: state.list,
     listItem: state.listItem
   }

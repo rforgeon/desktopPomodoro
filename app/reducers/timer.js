@@ -4,27 +4,34 @@
 //2. copy of current state
 
 var defaultState = {
-  seconds: 3,
-  index: 0,
-  isRunning: false
+  timerItems: [
+    {
+      seconds: 5,
+      index: 0,
+      isRunning: false,
+      onBreak: true
+    }
+  ]
 }
 
-function timer(state = defaultState, action){
+function Timer(state = defaultState, action){
   switch(action.type){
     case 'INIT_WORK_TIMER' :
 
       return {
-        seconds: action.seconds,
+        seconds: defaultState.seconds,
         index: state.index,
-        isRunning: state.isRunning
+        isRunning: state.isRunning,
+        onBreak: state.onBreak
       }
 
     case 'INIT_SHORT_BREAK_TIMER' :
 
       return {
-        seconds: 300,
+        seconds: 3,
         index: state.index,
-        isRunning: state.isRunning
+        isRunning: state.isRunning,
+        onBreak: state.onBreak
       }
 
     case 'INIT_LONG_BREAK_TIMER' :
@@ -32,44 +39,15 @@ function timer(state = defaultState, action){
       return {
         seconds: 1800,
         index: state.index,
-        isRunning: state.isRunning
+        isRunning: state.isRunning,
+        onBreak: state.onBreak
       }
 
-    case 'DECREMENT_TIMER':
-
-      return {
-        seconds: --state.seconds,
-        index: state.index,
-        isRunning: true
-      }
-
-    case 'PAUSE_TIMER' :
-
-      return {
-        seconds: state.seconds,
-        index: state.index,
-        isRunning: false
-      }
-
-    case 'RESET_TIMER' :
-
-      return {
-        seconds: defaultState.seconds,
-        index: state.index,
-        isRunning: false
-      }
-
-    case 'INCREMENT_POMODORO':
-
-      return {
-        seconds: state.seconds,
-        index: ++state.index,
-        isRunning: state.isRunning
-      }
+  
 
     default:
       return state;
   }
 }
 
-export default timer;
+export default Timer;

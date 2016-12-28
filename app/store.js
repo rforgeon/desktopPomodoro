@@ -6,10 +6,25 @@ import { browserHistory } from 'react-router';
 import rootReducer from './reducers/index';
 
 //build some fake data
-var timer = {
+
+var workTimerItem = {
   seconds: 1500,
-  index: 0,
-  isRunning: false
+  pomodoroIndex: 0,
+  isRunning: false,
+  onBreak: false,
+  timerIndex: 0
+}
+
+var shortBreakTimerItem = {
+  seconds: 300,
+  pomodoroIndex: 0,
+  isRunning: false,
+  onBreak: false,
+  timerIndex: 1
+}
+
+var timer = {
+  timerItems: [workTimerItem, shortBreakTimerItem]
 }
 
 var list = {

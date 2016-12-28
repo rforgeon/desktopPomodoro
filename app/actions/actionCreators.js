@@ -41,16 +41,33 @@ export function pauseTimer(seconds,index){
 }
 
 //decrement timer
-export function decrementTimer(){
+export function decrementTimer(timerIndex){
   return{
     type: "DECREMENT_TIMER",
+    timerIndex
   }
 }
 
 //decrement timer
-export function incrementPomodoro(){
+export function incrementIndex(){
   return{
-    type: "INCREMENT_POMODORO",
+    type: "INCREMENT_INDEX",
+  }
+}
+
+//set onbreak to true
+export function setOnbreakTrue(onBreak){
+  return{
+    type: "SET_ONBREAK_TRUE",
+    onBreak
+  }
+}
+
+//set onbreak to false
+export function setOnbreakFalse(onBreak){
+  return{
+    type: "SET_ONBREAK_FALSE",
+    onBreak
   }
 }
 
