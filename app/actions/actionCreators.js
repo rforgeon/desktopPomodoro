@@ -72,20 +72,18 @@ export function setOnbreakFalse(onBreak){
 }
 
 //add item
-export function addItem(itemId,itemText,isCompleted){
+export function addListItem(itemText){
   return{
-    type: "ADD_ITEM",
-    itemId,
+    type: "ADD_LIST_ITEM",
     itemText,
-    isCompleted
+
   }
 }
 
 //mark item completed
-export function itemCompleted(itemId, isCompleted){
+export function toggleCompleted(itemId){
   return{
-    type: "ITEM_COMPLETED",
+    type: "TOGGLE_COMPLETED",
     itemId,
-    isCompleted
   }
 }

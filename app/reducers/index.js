@@ -4,8 +4,15 @@ import { routerReducer } from 'react-router-redux';
 import timer from './timer';
 import timerItem from './timerItem';
 import list from './list';
-import listItem from './listItem';
+import listItems from './listItems';
 
-const rootReducer = combineReducers({timer, timerItem, list, listItem, routing: routerReducer});
+
+const rootReducer = combineReducers({
+  timer,
+  timerItem,
+  list,
+  listItems,
+  routing: routerReducer
+});
 
 export default rootReducer;
