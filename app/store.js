@@ -12,7 +12,8 @@ var workTimerItem = {
   pomodoroIndex: 0,
   isRunning: false,
   onBreak: false,
-  timerIndex: 0
+  timerIndex: 0,
+  id: 0
 }
 
 var shortBreakTimerItem = {
@@ -20,11 +21,20 @@ var shortBreakTimerItem = {
   pomodoroIndex: 0,
   isRunning: false,
   onBreak: false,
-  timerIndex: 1
+  timerIndex: 0,
+  id: 1
+}
+
+var longBreakTimerItem = {
+  seconds: 1800,
+  isRunning: false,
+  onBreak: false,
+  index: 0,
+  id: 2
 }
 
 var timer = {
-  timerItems: [workTimerItem, shortBreakTimerItem]
+  timerItems: [workTimerItem, shortBreakTimerItem, longBreakTimerItem]
 }
 
 var list = {

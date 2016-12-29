@@ -1,73 +1,73 @@
 //Initiate work timer
-export function initWorkTimer(seconds){
+export function initWorkTimer(){
   return{
     type: "INIT_WORK_TIMER",
-    seconds
+    
   }
 }
 
 //Initiate short break timer
-export function initShortBreakTimer(seconds){
+export function initShortBreakTimer(){
   return{
     type: "INIT_SHORT_BREAK_TIMER",
-    seconds
+
   }
 }
 
 //Initiate long break timer
-export function initLongBreakTimer(seconds){
+export function initLongBreakTimer(){
   return{
     type: "INIT_LONG_BREAK_TIMER",
-    seconds
+
   }
 }
 
 //reset timer
-export function resetTimer(seconds,index){
+export function resetTimer(seconds,id){
   return{
     type: "RESET_TIMER",
     seconds,
-    index
+    id
   }
 }
 
 //reset timer
-export function pauseTimer(seconds,index){
+export function pauseTimer(id){
   return{
     type: "PAUSE_TIMER",
-    seconds,
-    index
+    id
   }
 }
 
 //decrement timer
-export function decrementTimer(timerIndex){
+export function decrementTimer(id){
   return{
     type: "DECREMENT_TIMER",
-    timerIndex
+    id
   }
 }
 
 //decrement timer
-export function incrementIndex(){
+export function incrementIndex(id){
   return{
     type: "INCREMENT_INDEX",
+    id
   }
 }
 
 //set onbreak to true
-export function setOnbreakTrue(onBreak){
+export function setOnbreakTrue(id){
   return{
     type: "SET_ONBREAK_TRUE",
-    onBreak
+    id
   }
 }
 
 //set onbreak to false
-export function setOnbreakFalse(onBreak){
+export function setOnbreakFalse(id){
   return{
     type: "SET_ONBREAK_FALSE",
-    onBreak
+    id
   }
 }
 

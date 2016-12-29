@@ -5,9 +5,8 @@ class TimerItem extends Component {
 
   startTimer(){
     this.interval = setInterval( () => {
-      console.log(this.props.myTimerItem)
 
-      this.props.decrementTimer(this.props.myTimerItem.timerIndex);
+      this.props.decrementTimer(this.props.myTimerItem.id);
     }, 1000);
     this.setTimeout = setTimeout( () => {
       this.props.incrementIndex();
@@ -43,26 +42,27 @@ class TimerItem extends Component {
         })
         return "ShortBreak";
       }
-    }, this.props.timerItem[this.props.myTimerItem.timerIndex].seconds*1000);
+    }, this.props.myTimerItem.seconds*1000);
   }
 
   pauseTimer(){
-    this.props.pauseTimer();
+    this.props.pauseTimer(this.props.myTimerItem.id);
     clearInterval(this.interval);
   }
 
   resetTimer(){
-    this.props.resetTimer();
+    var id = this.props.myTimerItem.id
+    var seconds = this.props.timer.timerItems[id].seconds
+    this.props.resetTimer(seconds,id);
     clearInterval(this.interval);
   }
-
 
 
   render() {
 
     //show timer seconds as "minutes:seconds" (include leading zeros)
-    var minutes = Math.floor(this.props.timerItem[this.props.myTimerItem.timerIndex].seconds / 60);
-    var clockSeconds = this.props.timerItem[this.props.myTimerItem.timerIndex].seconds - minutes * 60;
+    var minutes = Math.floor(this.props.myTimerItem.seconds / 60);
+    var clockSeconds = this.props.myTimerItem.seconds  - minutes * 60;
     function str_pad_left(string,pad,length){
       return (new Array(length+1).join(pad)+string).slice(-length);
     }
@@ -76,9 +76,6 @@ class TimerItem extends Component {
     return (
       <div className="TimerItem">
         <h2>{finalTime}</h2>
-        <button onClick={this.startTimer.bind(this)}>Start</button>
-        <button onClick={this.pauseTimer.bind(this)}>Pause</button>
-        <button onClick={this.resetTimer.bind(this)}>Reset</button>
       </div>
     );
   }

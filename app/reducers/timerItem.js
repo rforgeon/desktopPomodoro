@@ -1,33 +1,41 @@
 var workTimerItem = {
   seconds: 1500,
-  pomodoroIndex: 0,
   isRunning: false,
   onBreak: false,
-  timerIndex: 0
+  index: 0,
+  id: 0
 }
 
 var shortBreakTimerItem = {
   seconds: 300,
-  pomodoroIndex: 0,
   isRunning: false,
   onBreak: false,
-  timerIndex: 1
+  index: 0,
+  id: 1
+}
+
+var longBreakTimerItem = {
+  seconds: 1800,
+  isRunning: false,
+  onBreak: false,
+  index: 0,
+  id: 2
 }
 
 var timer = {
-  timerItems: [workTimerItem, shortBreakTimerItem]
+  currentTimer: 0,
+  initWorkTime: workTimerItem.seconds,
+  initShortBreakTime: shortBreakTimerItem.seconds,
+  initLongBreakTime: longBreakTimerItem.seconds,
+  timerItems: [workTimerItem, shortBreakTimerItem, longBreakTimerItem]
 }
 
 function timerItem(state = timer.timerItems,action){
-  const i = action.timerIndex;
+  const i = action.id;
 
   switch(action.type){
 
     case 'DECREMENT_TIMER':
-      console.log("Decrementing timer");
-      console.log(state);
-      console.log(state[0].seconds);
-
       return [
         ...state.slice(0,i),
         {...state[i], seconds: --state[i].seconds, isRunning: true},
@@ -43,13 +51,10 @@ function timerItem(state = timer.timerItems,action){
       ]
 
     case 'RESET_TIMER' :
-      console.log(i)
-      console.log(timer.timerItems[i].seconds)
-      const defaultTime = timer.timerItems[i].seconds
 
       return [
         ...state.slice(0,i),
-        {...state[i], isRunning: false, seconds: defaultTime },
+        {...state[i], isRunning: false, seconds: action.seconds },
         ...state.slice(i + 1),
       ]
 
