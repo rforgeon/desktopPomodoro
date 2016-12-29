@@ -9,27 +9,22 @@ import rootReducer from './reducers/index';
 
 var workTimerItem = {
   seconds: 1500,
-  pomodoroIndex: 0,
   isRunning: false,
-  onBreak: false,
-  timerIndex: 0,
+  cycleIndex: 0,
   id: 0
 }
 
 var shortBreakTimerItem = {
   seconds: 300,
-  pomodoroIndex: 0,
   isRunning: false,
-  onBreak: false,
-  timerIndex: 0,
+  cycleIndex: 0,
   id: 1
 }
 
 var longBreakTimerItem = {
   seconds: 1800,
   isRunning: false,
-  onBreak: false,
-  index: 0,
+  cycleIndex: 0,
   id: 2
 }
 

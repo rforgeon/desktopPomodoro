@@ -1,8 +1,16 @@
+//Initiate timer
+export function initTimer(){
+  return{
+    type: "INIT_TIMER",
+
+  }
+}
+
 //Initiate work timer
 export function initWorkTimer(){
   return{
     type: "INIT_WORK_TIMER",
-    
+
   }
 }
 
@@ -23,11 +31,9 @@ export function initLongBreakTimer(){
 }
 
 //reset timer
-export function resetTimer(seconds,id){
+export function resetTimer(){
   return{
-    type: "RESET_TIMER",
-    seconds,
-    id
+    type: "RESET_TIMER"
   }
 }
 
@@ -48,9 +54,9 @@ export function decrementTimer(id){
 }
 
 //decrement timer
-export function incrementIndex(id){
+export function incrementCycleIndex(id){
   return{
-    type: "INCREMENT_INDEX",
+    type: "INCREMENT_CYCLE_INDEX",
     id
   }
 }

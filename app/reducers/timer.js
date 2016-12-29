@@ -4,7 +4,9 @@
 //2. copy of current state
 
 var defaultState = {
-  currentTimer: 0
+  initTimer: false,
+  currentTimer: 0,
+  onBreak: false
 }
 
 function timer(state = defaultState, action){
@@ -17,19 +19,33 @@ function timer(state = defaultState, action){
     case 'INIT_WORK_TIMER' :
 
       return {
+        initTimer: true,
         currentTimer: 0,
+        onBreak: false
       }
 
     case 'INIT_SHORT_BREAK_TIMER' :
 
       return {
-        currentTimer: 1
+        initTimer: true,
+        currentTimer: 1,
+        onBreak: true
       }
 
     case 'INIT_LONG_BREAK_TIMER' :
 
       return {
-        currentTimer: 2
+        initTimer: true,
+        currentTimer: 2,
+        onBreak: true
+      }
+
+    case 'INIT_TIMER' :
+
+      return {
+        initTimer: true,
+        currentTimer: 0,
+        onBreak: false
       }
 
     default:
