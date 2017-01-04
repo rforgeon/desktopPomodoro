@@ -47,6 +47,7 @@ export function pauseTimer(id){
 
 //decrement timer
 export function decrementTimer(id){
+  //this.props.incrementTotalTime();
   return{
     type: "DECREMENT_TIMER",
     id
@@ -77,19 +78,24 @@ export function setOnbreakFalse(id){
   }
 }
 
-//add item
-export function addListItem(itemText){
+//increment total time
+export function incrementTotalTime(){
   return{
-    type: "ADD_LIST_ITEM",
-    itemText,
-
+    type: "INCREMENT_TOTAL_TIME",
   }
 }
 
-//mark item completed
-export function toggleCompleted(itemId){
+//increment total time
+export function incrementTimeSinceInit(){
   return{
-    type: "TOGGLE_COMPLETED",
-    itemId,
+    type: "INCREMENT_TIME_SINCE_INIT",
+  }
+}
+
+//reset total time
+export function resetTotalTime(totalTime){
+  return{
+    type: "RESET_TOTAL_TIME",
+    totalTime
   }
 }

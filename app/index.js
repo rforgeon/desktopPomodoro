@@ -8,8 +8,6 @@ import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 //import components
 import App from './components/App';
-import List from './components/List';
-import ListItem from './components/ListItem';
 import Timer from './components/Timer';
 import TimerItem from './components/TimerItem';
 

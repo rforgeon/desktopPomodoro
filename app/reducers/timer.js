@@ -6,7 +6,9 @@
 var defaultState = {
   initTimer: false,
   currentTimer: 0,
-  onBreak: false
+  onBreak: false,
+  totalTime: 0,
+  timeSinceInit: 0
 }
 
 function timer(state = defaultState, action){
@@ -21,7 +23,9 @@ function timer(state = defaultState, action){
       return {
         initTimer: true,
         currentTimer: 0,
-        onBreak: false
+        onBreak: false,
+        totalTime: state.totalTime,
+        timeSinceInit: 0
       }
 
     case 'INIT_SHORT_BREAK_TIMER' :
@@ -29,7 +33,9 @@ function timer(state = defaultState, action){
       return {
         initTimer: true,
         currentTimer: 1,
-        onBreak: true
+        onBreak: true,
+        totalTime: state.totalTime,
+        timeSinceInit: 0
       }
 
     case 'INIT_LONG_BREAK_TIMER' :
@@ -37,7 +43,9 @@ function timer(state = defaultState, action){
       return {
         initTimer: true,
         currentTimer: 2,
-        onBreak: true
+        onBreak: true,
+        totalTime: state.totalTime,
+        timeSinceInit: 0
       }
 
     case 'INIT_TIMER' :
@@ -45,7 +53,39 @@ function timer(state = defaultState, action){
       return {
         initTimer: true,
         currentTimer: 0,
-        onBreak: false
+        onBreak: false,
+        totalTime: 0,
+        timeSinceInit: 0
+      }
+
+    case 'INCREMENT_TOTAL_TIME' :
+
+      return {
+        initTimer: state.initTimer,
+        currentTimer: state.currentTimer,
+        onBreak: state.onBreak,
+        totalTime: ++state.totalTime,
+        timeSinceInit: state.timeSinceInit
+      }
+
+    case 'INCREMENT_TIME_SINCE_INIT' :
+
+      return {
+        initTimer: state.initTimer,
+        currentTimer: state.currentTimer,
+        onBreak: state.onBreak,
+        totalTime: state.totalTime,
+        timeSinceInit: ++state.timeSinceInit
+      }
+
+    case 'RESET_TOTAL_TIME' :
+
+      return {
+        initTimer: state.initTimer,
+        currentTimer: state.currentTimer,
+        onBreak: state.onBreak,
+        totalTime: action.totalTime,
+        timeSinceInit: 0
       }
 
     default:

@@ -1,61 +1,7 @@
 import React, { Component } from 'react';
-import '../App.css';
+import {styles} from '../styles/TimerStyle'
 
 class TimerItem extends Component {
-
-  // startTimer(){
-  //   this.interval = setInterval( () => {
-  //
-  //     this.props.decrementTimer(this.props.myTimerItem.id);
-  //   }, 1000);
-  //   this.setTimeout = setTimeout( () => {
-  //     this.props.incrementCycleIndex();
-  //     if (this.props.onBreak == false){
-  //       this.props.pauseTimer();
-  //       this.props.setOnbreakTrue();
-  //       this.props.initWorkTimer();
-  //       this.props.startTimer();
-  //       let myNotification = new Notification("Time to get to Work!", {
-  //         body: 'Get back to changing the world! 🙌'
-  //       })
-  //     }
-  //
-  //     //take a long (30min) break every 4 pomodoros
-  //     else if (this.props.index%4 == 0){
-  //       this.props.pauseTimer();
-  //       this.props.setOnbreakFalse();
-  //       this.props.initLongBreakTimer();
-  //       this.props.startTimer();
-  //       let myNotification = new Notification("Time for a Long Break!", {
-  //         body: 'Enjoy yourselft. You worked hard for it! 🎊'
-  //       })
-  //       return "LongBreak";
-  //     }
-  //     //else after each pomodoro, take a short (5min) break
-  //     else{
-  //       this.props.pauseTimer();
-  //       this.props.setOnbreakFalse();
-  //       this.props.initShortBreakTimer();
-  //       this.props.startTimer();
-  //       let myNotification = new Notification("Time for a Short Break!", {
-  //         body: 'Take a breather! 🎉'
-  //       })
-  //       return "ShortBreak";
-  //     }
-  //   }, this.props.myTimerItem.seconds*1000);
-  // }
-  //
-  // pauseTimer(){
-  //   this.props.pauseTimer(this.props.myTimerItem.id);
-  //   clearInterval(this.interval);
-  //   clearInterval(this.interval);
-  // }
-  //
-  // resetTimer(){
-  //   this.props.resetTimer();
-  //   clearInterval(this.interval);
-  //   clearInterval(this.interval);
-  // }
 
 
   render() {
@@ -70,13 +16,10 @@ class TimerItem extends Component {
 
     var finalTime = str_pad_left(minutes,'0',2)+':'+str_pad_left(clockSeconds,'0',2);
 
-
-
-
     return (
-      <div className="TimerItem">
-        <h2>{finalTime}</h2>
-      </div>
+        <div className="TimerItem">
+          <div style={ styles.timerTime }>{finalTime}</div>
+        </div>
     );
   }
 }

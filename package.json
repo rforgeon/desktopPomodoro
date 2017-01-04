@@ -118,6 +118,7 @@
     "electron": "^1.4.11",
     "electron-builder": "^10.6.1",
     "electron-devtools-installer": "^2.0.1",
+    "electron-packager": "^8.4.0",
     "enzyme": "^2.6.0",
     "eslint": "^3.11.1",
     "eslint-config-airbnb": "^13.0.0",
@@ -156,6 +157,7 @@
     "webpack-validator": "^2.2.11"
   },
   "dependencies": {
+    "circle-timer": "^0.1.5",
     "electron-debug": "^1.1.0",
     "font-awesome": "^4.7.0",
     "react": "^15.4.1",
@@ -163,6 +165,7 @@
     "react-redux": "^4.4.6",
     "react-router": "^3.0.0",
     "react-router-redux": "^4.0.7",
+    "reactcss": "^1.1.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
     "source-map-support": "^0.4.6"
