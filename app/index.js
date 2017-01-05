@@ -17,7 +17,7 @@ import store, { history } from './store';
 const router = (
   <Provider store={store}>
   <Router history={history}>
-    <Route path="/Users/RJ/pomodoroApp/pomodoroDesktop/app/app.html" component={App}>
+    <Route path={window.location.pathname} component={App}>
       <IndexRoute component={Timer}></IndexRoute>
     </Route>
   </Router>

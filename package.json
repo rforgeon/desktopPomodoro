@@ -1,6 +1,6 @@
 {
   "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
+  "productName": "Productively",
   "version": "0.10.0",
   "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
   "main": "main.js",
@@ -26,8 +26,8 @@
     "cleanup": "mop -v"
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.develar.ElectronReact",
+    "productName": "Productively",
+    "appId": "info.Forgeon.Productively",
     "category": "public.app-category.tools",
     "dmg": {
       "contents": [
@@ -116,9 +116,8 @@
     "css-loader": "^0.26.1",
     "devtron": "^1.4.0",
     "electron": "^1.4.11",
-    "electron-builder": "^10.6.1",
+    "electron-builder": "^10.17.3",
     "electron-devtools-installer": "^2.0.1",
-    "electron-packager": "^8.4.0",
     "enzyme": "^2.6.0",
     "eslint": "^3.11.1",
     "eslint-config-airbnb": "^13.0.0",
