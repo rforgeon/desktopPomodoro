@@ -157,7 +157,7 @@
     "webpack-validator": "^2.2.11"
   },
   "dependencies": {
-    "circle-timer": "^0.1.5",
+    "circle-timer": "^0.1.6",
     "electron-debug": "^1.1.0",
     "font-awesome": "^4.7.0",
     "react": "^15.4.1",

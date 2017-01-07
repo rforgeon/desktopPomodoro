@@ -15,6 +15,7 @@ class Timer extends Component {
   startTimer(){
     document.getElementById("playPause").src="../resources/Pause.png";
     document.getElementById("playPauseOnClick").onclick=this.pauseTimer.bind(this);
+    //this.resetTimer();
     //start timer circle
     this.circleTimer.startTimer();
     //decrement timer every second
@@ -33,10 +34,9 @@ class Timer extends Component {
         //if just on a break, start work timer
         if (this.props.timer.onBreak){
           this.circleTimer.pauseTimer();
-          this.circleTimer.updateTimer({ circleDuration: 1500, timerDuration: 1500, color: '#80DEEA',backgroundRingColor: '#37474F', thickness: '7',
-          radius: '95'});
-          this.resetTimer();
+          this.circleTimer.updateTimer({ circleDuration: 10, timerDuration: 10});
           this.props.initWorkTimer();
+          this.resetTimer();
           this.startTimer();
           let myNotification = new Notification("Time to Work!", {
             body: 'Get back to changing the world! 🙌'
@@ -46,10 +46,9 @@ class Timer extends Component {
         //else after each pomodoro, take a short (5min) break
         else if (!this.props.timer.onBreak && this.props.timerItem[0].cycleIndex%4 != 0){
           this.circleTimer.pauseTimer();
-          this.circleTimer.updateTimer({ circleDuration: 300, timerDuration: 300,color: '#80DEEA',backgroundRingColor: '#37474F', thickness: '7',
-          radius: '95'});
-          this.resetTimer();
+          this.circleTimer.updateTimer({ circleDuration: 5, timerDuration: 5});
           this.props.initShortBreakTimer();
+          this.resetTimer();
           this.startTimer();
           let myNotification = new Notification("Time for a Short Break!", {
             body: 'Take a breather! 🎉'
@@ -58,10 +57,9 @@ class Timer extends Component {
         //if the work timer had run for 4 cycles, run long break
         else if (this.props.timerItem[0].cycleIndex%4 == 0){
           this.circleTimer.pauseTimer();
-          this.circleTimer.updateTimer({ circleDuration: 1800, timerDuration: 1800,color: '#80DEEA',backgroundRingColor: '#37474F', thickness: '7',
-          radius: '75'});
-          this.resetTimer();
+          this.circleTimer.updateTimer({ circleDuration: 15, timerDuration: 15});
           this.props.initLongBreakTimer();
+          this.resetTimer();
           this.startTimer();
           let myNotification = new Notification("Time for a Long Break!", {
             body: 'Enjoy yourselft. You worked hard for it! 🎊'
@@ -73,8 +71,8 @@ class Timer extends Component {
   }
 
   pauseTimer(){
-    this.circleTimer.pauseTimer();
     this.props.pauseTimer(this.props.timer.currentTimer);
+    this.circleTimer.pauseTimer();
     clearInterval(this.interval);
     clearTimeout(this.timeout);
     document.getElementById("playPause").src="../resources/Play.png"
@@ -86,27 +84,28 @@ class Timer extends Component {
     clearInterval(this.interval);
     clearTimeout(this.timeout);
     this.circleTimer.pauseTimer();
+    console.log(this.props.timer.currentTimer)
     switch(this.props.timer.currentTimer){
       //on work timer
       case 0:
-        this.circleTimer.updateTimer({ circleDuration: 1500, timerDuration: 1500,color: '#80DEEA',backgroundRingColor: '#37474F', thickness: '7',
-        radius: '95'});
+        this.circleTimer.updateTimer({ circleDuration: 10, timerDuration: 10});
+        break;
       //on short break timer
       case 1:
-        this.circleTimer.updateTimer({ circleDuration: 300, timerDuration: 300,color: '#80DEEA',backgroundRingColor: '#37474F', thickness: '7',
-        radius: '95'});
+        this.circleTimer.updateTimer({ circleDuration: 5, timerDuration: 5});
+        break;
       //on long break timer
       case 2:
-        this.circleTimer.updateTimer({ circleDuration: 1800, timerDuration: 1800,color: '#80DEEA',backgroundRingColor: '#37474F', thickness: '7',
-        radius: '95'});
+        this.circleTimer.updateTimer({ circleDuration: 15, timerDuration: 15});
+        break;
     }
-    document.getElementById("playPause").src="../resources/Play.png"
-    document.getElementById("playPauseOnClick").onclick=this.startTimer.bind(this);
   }
   resetOnClick(){
     this.resetTimer();
     var seconds = this.props.timer.totalTime-this.props.timer.timeSinceInit
     this.props.resetTotalTime(seconds);
+    document.getElementById("playPause").src="../resources/Play.png"
+    document.getElementById("playPauseOnClick").onclick=this.startTimer.bind(this);
   }
 
 
@@ -120,8 +119,8 @@ class Timer extends Component {
      thickness: '7',
      radius: '95',
      units: 'px',
-     circleDuration: 1500,
-     timerDuration: 1500,
+     circleDuration: 10,
+     timerDuration: 10,
      color: '#80DEEA',
      backgroundRingColor: '#37474F',
    })

@@ -1,5 +1,5 @@
 var workTimerItem = {
-  seconds: 1500,
+  seconds: 10,
   isRunning: false,
   cycleIndex: 0,
   id: 0
@@ -47,20 +47,20 @@ function timerItem(state = timer.timerItems,action){
 
       return [
         {
-          seconds: 1500,
+          seconds: 10,
           isRunning: false,
           cycleIndex: state[0].cycleIndex,
           id: 0
         },
 
         {
-          seconds: 300,
+          seconds: 5,
           isRunning: false,
           cycleIndex: state[1].cycleIndex,
           id: 1
         },
         {
-          seconds: 1800,
+          seconds: 15,
           isRunning: false,
           cycleIndex: state[2].cycleIndex,
           id: 2

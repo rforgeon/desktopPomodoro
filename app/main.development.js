@@ -48,7 +48,7 @@ app.on('ready', async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    resizable: false,
+    //resizable: false,
     width: 300,
     height: 400
   });
