@@ -15,7 +15,6 @@ class Timer extends Component {
   startTimer(){
     document.getElementById("playPause").src="../resources/Pause.png";
     document.getElementById("playPauseOnClick").onclick=this.pauseTimer.bind(this);
-    //this.resetTimer();
     //start timer circle
     this.circleTimer.startTimer();
     //decrement timer every second
