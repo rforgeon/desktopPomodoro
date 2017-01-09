@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import { createStore } from 'redux';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import { Router, hashHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+import routes from './routes';
+import configureStore from './store/configureStore';
 
 
 //import components
@@ -12,20 +13,17 @@ import Timer from './components/Timer';
 import TimerItem from './components/TimerItem';
 
 
-import store, { history } from './store';
+const store = configureStore();
+const history = syncHistoryWithStore(hashHistory, store);
 
 const router = (
   <Provider store={store}>
-  <Router history={history}>
-    <Route path={window.location.pathname} component={App}>
-      <IndexRoute component={Timer}></IndexRoute>
-    </Route>
-  </Router>
+    <Router history={history} routes={routes}/>
   </Provider>
 )
 
 
-ReactDOM.render(
+render(
   router,
   document.getElementById('root')
 );

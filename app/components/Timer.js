@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import TimerItem from './TimerItem';
 import CircleTimer from 'circle-timer';
 import {styles} from '../styles/TimerStyle';
+import pause from './img/pause.png';
+import play from './img/play.png';
+import refresh from './img/refresh.png';
+import sunrise from './img/sunrise.png';
+import sunset from './img/sunset.png';
+
+
 
 class Timer extends Component {
 
@@ -13,7 +20,7 @@ class Timer extends Component {
   }
 
   startTimer(){
-    document.getElementById("playPause").src="../resources/Pause.png";
+    document.getElementById("playPause").src={pause};
     document.getElementById("playPauseOnClick").onclick=this.pauseTimer.bind(this);
     //start timer circle
     this.circleTimer.startTimer();
@@ -74,7 +81,7 @@ class Timer extends Component {
     this.circleTimer.pauseTimer();
     clearInterval(this.interval);
     clearTimeout(this.timeout);
-    document.getElementById("playPause").src="../resources/Play.png"
+    document.getElementById("playPause").src={play}
     document.getElementById("playPauseOnClick").onclick=this.startTimer.bind(this);
   }
 
@@ -103,7 +110,7 @@ class Timer extends Component {
     this.resetTimer();
     var seconds = this.props.timer.totalTime-this.props.timer.timeSinceInit
     this.props.resetTotalTime(seconds);
-    document.getElementById("playPause").src="../resources/Play.png"
+    document.getElementById("playPause").src={play}
     document.getElementById("playPauseOnClick").onclick=this.startTimer.bind(this);
   }
 
@@ -228,10 +235,10 @@ class Timer extends Component {
             />
           </div>
           <div id="playPauseOnClick" style={styles.playPauseButton}>
-            <img id="playPause" style={ styles.playIcon } src="../resources/Play.png"></img>
+            <img id="playPause" style={ styles.playIcon } src={play}></img>
           </div>
           <div onClick={this.resetOnClick.bind(this)} style={styles.resetButton}>
-            <img style={ styles.refreshIcon } src="../resources/refresh.png"></img>
+            <img style={ styles.refreshIcon } src={refresh}></img>
           </div>
 
         </div>
@@ -272,8 +279,8 @@ class Timer extends Component {
           <div style={ styles.statusText }>Status:</div>
           <div style={ styles.currentStatus }>{this.setCurrentStatus()}</div>
 
-          <div style={ styles.col3 }>  <img style={ styles.sunrise } src="../resources/sunrise.png"></img> </div>
-          <div style={ styles.col3 }>  <img style={ styles.sunset } src="../resources/sunset.png"></img> </div>
+          <div style={ styles.col3 }>  <img style={ styles.sunrise } src={sunrise}></img> </div>
+          <div style={ styles.col3 }>  <img style={ styles.sunset } src={sunset}></img> </div>
 
         </div>
         </div>

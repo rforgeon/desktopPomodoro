@@ -116,6 +116,7 @@ import reactCSS from 'reactcss'
         boxShadow: '',
       },
       total:{
+        fontFamily: "HelveticaNeue",
         position: 'fixed',
         top: '50%',
         left: '50%',
@@ -125,6 +126,7 @@ import reactCSS from 'reactcss'
         color: '#37474F'
       },
       totalHrsText:{
+        fontFamily: "HelveticaNeue",
         position: 'fixed',
         top: '50%',
         left: '50%',
@@ -134,6 +136,7 @@ import reactCSS from 'reactcss'
         color: '#37474F'
       },
       currentTotalHrs:{
+        fontFamily: "HelveticaNeue",
         position: 'fixed',
         top: '50%',
         left: '50%',
@@ -143,6 +146,7 @@ import reactCSS from 'reactcss'
         color: '#37474F'
       },
       totalMinsText:{
+        fontFamily: "HelveticaNeue",
         position: 'fixed',
         top: '50%',
         left: '50%',
@@ -152,6 +156,7 @@ import reactCSS from 'reactcss'
         color: '#37474F'
       },
       currentTotalMins:{
+        fontFamily: "HelveticaNeue",
         position: 'fixed',
         top: '50%',
         left: '50%',
@@ -161,6 +166,7 @@ import reactCSS from 'reactcss'
         color: '#37474F'
       },
       statusText:{
+        fontFamily: "HelveticaNeue",
         position: 'fixed',
         top: '50%',
         left: '50%',
@@ -170,6 +176,7 @@ import reactCSS from 'reactcss'
         color: '#37474F'
       },
       currentStatus:{
+        fontFamily: "HelveticaNeue",
         position: 'fixed',
         top: '50%',
         left: '50%',

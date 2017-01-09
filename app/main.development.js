@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'production') {
   sourceMapSupport.install();
 }
 
-if (process.env.NODE_ENV === 'development') {
+ if (process.env.NODE_ENV === 'development') {
   require('electron-debug')(); // eslint-disable-line global-require
   const path = require('path'); // eslint-disable-line
   const p = path.join(__dirname, '..', 'app', 'node_modules'); // eslint-disable-line
@@ -45,13 +45,21 @@ const installExtensions = async () => {
 app.on('ready', async () => {
   await installExtensions();
 
-
+if (process.env.NODE_ENV === 'development') {
   mainWindow = new BrowserWindow({
     show: false,
     //resizable: false,
     width: 300,
     height: 400
   });
+}else{
+  mainWindow = new BrowserWindow({
+    show: false,
+    resizable: false,
+    width: 300,
+    height: 400
+  });
+}
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);
 
