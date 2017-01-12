@@ -13,12 +13,12 @@ if (process.env.NODE_ENV === 'production') {
   sourceMapSupport.install();
 }
 
- if (process.env.NODE_ENV === 'development') {
+ //if (process.env.NODE_ENV === 'development') {
   require('electron-debug')(); // eslint-disable-line global-require
   const path = require('path'); // eslint-disable-line
   const p = path.join(__dirname, '..', 'app', 'node_modules'); // eslint-disable-line
   require('module').globalPaths.push(p); // eslint-disable-line
-}
+//}
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
@@ -48,14 +48,13 @@ app.on('ready', async () => {
 if (process.env.NODE_ENV === 'development') {
   mainWindow = new BrowserWindow({
     show: false,
-    //resizable: false,
     width: 300,
     height: 400
   });
 }else{
   mainWindow = new BrowserWindow({
     show: false,
-    resizable: false,
+    //resizable: false,
     width: 300,
     height: 400
   });
@@ -168,6 +167,13 @@ if (process.env.NODE_ENV === 'development') {
         click() {
           mainWindow.setFullScreen(!mainWindow.isFullScreen());
         }
+      },
+        {
+          label: 'Toggle Developer Tools',
+          accelerator: 'Alt+Command+I',
+          click() {
+            mainWindow.toggleDevTools();
+          }
       }]
     }, {
       label: 'Window',
